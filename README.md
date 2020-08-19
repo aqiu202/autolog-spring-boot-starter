@@ -39,11 +39,12 @@ public class TestController {
 
     //使用无参数的日志
     @GetMapping("test1")
-    @AutoLog(value = "测试日志", spEl = false)
+    @AutoLog(value = "测试日志")
     public JsonResult test1() {
         return JsonResult.ok();
     }
 
+    //使用Spring SpEl表达式注入指定参数
     //参数方式注入日志方式1，通过名称 #name
     @GetMapping("test2")
     @AutoLog(value = "'测试参数，参数name:' + #map[name]")
